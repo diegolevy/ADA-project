@@ -1476,7 +1476,7 @@ for n,row in df18_19.iterrows():
 
 df_total = pd.DataFrame(df14_15).append([df15_16,df16_17, df17_18, df18_19])
 
-df_total['FTR'].replace(['H','D','A'],[0,1,2])
+df_total['FTR'] = df_total['FTR'].replace(['H','D','A'],[0,1,2])
 df_total['TotalLast5Home'] = df_total['TotalLast5Home'].astype(int)
 df_total['TotalLast5Away'] = df_total['TotalLast5Away'].astype(int)
 df_total['Last5WhenHome'] = df_total['Last5WhenHome'].astype(int)
