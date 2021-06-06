@@ -759,7 +759,8 @@ df14_15_stats["Away_cum_golas"] = np.nan
 
 # Add the statistics to the main dataframe (pts, pts for the last five games, goals)
 
-teamTracking = defaultdict(lambda: { 'pts' : 0, 'games' : 0, 'goals':0, 'recent': [], 'recentHome': [], 'recentAway': []} )
+teamTracking = defaultdict(lambda: { 'pts' : 0, 'games' : 0, 'goals':0,'goalsagainst':0, 'recent': [], 'recentHome': [], 'recentAway': []} )
+
 
 
 # Add new columns
@@ -769,6 +770,8 @@ df14_15['GamesHome'] = ''
 df14_15['GamesAway'] = ''
 df14_15['GoalsHome'] = ''
 df14_15['GoalsAway'] = ''
+df14_15['GoalsagainstHome'] = ''
+df14_15['GoalsagainstAway'] = ''
 
 
 
@@ -784,6 +787,8 @@ for n,row in df14_15.iterrows():
 	df14_15.at[n, 'GamesAway'] = teamTracking[away]['games']
 	df14_15.at[n, 'GoalsHome'] = teamTracking[home]['goals']
 	df14_15.at[n, 'GoalsAway'] = teamTracking[away]['goals']
+	df14_15.at[n, 'GoalsagainstHome'] = teamTracking[home]['goalsagainst']
+	df14_15.at[n, 'GoalsagainstAway'] = teamTracking[away]['goalsagainst']
 
 
 	# Update tracking data
@@ -800,6 +805,8 @@ for n,row in df14_15.iterrows():
 
 	teamTracking[home]['goals'] += row['FTHG']
 	teamTracking[away]['goals'] += row['FTAG']
+	teamTracking[home]['goalsagainst'] += row['FTAG']
+	teamTracking[away]['goalsagainst'] += row['FTHG']
 
 
 
@@ -915,7 +922,7 @@ df15_16_stats["Away_cum_golas"] = np.nan
 # Add the statistics to the main dataframe
 
 
-teamTracking = defaultdict(lambda: { 'pts' : 0, 'games' : 0, 'goals':0, 'recent': [], 'recentHome': [], 'recentAway': []} )
+teamTracking = defaultdict(lambda: { 'pts' : 0, 'games' : 0, 'goals':0, 'goalsagainst': 0, 'recent': [], 'recentHome': [], 'recentAway': []} )
 
 
 
@@ -926,7 +933,8 @@ df15_16['GamesHome'] = ''
 df15_16['GamesAway'] = ''
 df15_16['GoalsHome'] = ''
 df15_16['GoalsAway'] = ''
-
+df15_16['GoalsagainstHome'] = ''
+df15_16['GoalsagainstAway'] = ''
 
 
 for n,row in df15_16.iterrows():
@@ -941,6 +949,8 @@ for n,row in df15_16.iterrows():
 	df15_16.at[n, 'GamesAway'] = teamTracking[away]['games']
 	df15_16.at[n, 'GoalsHome'] = teamTracking[home]['goals']
 	df15_16.at[n, 'GoalsAway'] = teamTracking[away]['goals']
+	df15_16.at[n, 'GoalsagainstHome'] = teamTracking[home]['goalsagainst']
+	df15_16.at[n, 'GoalsagainstAway'] = teamTracking[away]['goalsagainst']
 
 
 	# Update tracking data
@@ -957,6 +967,9 @@ for n,row in df15_16.iterrows():
 
 	teamTracking[home]['goals'] += row['FTHG']
 	teamTracking[away]['goals'] += row['FTAG']
+	teamTracking[home]['goalsagainst'] += row['FTAG']
+	teamTracking[away]['goalsagainst'] += row['FTHG']
+
 
 
 
@@ -1074,7 +1087,7 @@ df16_17_stats["Away_cum_golas"] = np.nan
 # Add the statistics to the main dataframe
 
 
-teamTracking = defaultdict(lambda: { 'pts' : 0, 'games' : 0, 'goals':0, 'recent': [], 'recentHome': [], 'recentAway': []} )
+teamTracking = defaultdict(lambda: { 'pts' : 0, 'games' : 0, 'goals':0,'goalsagainst':0, 'recent': [], 'recentHome': [], 'recentAway': []} )
 
 
 
@@ -1085,6 +1098,8 @@ df16_17['GamesHome'] = ''
 df16_17['GamesAway'] = ''
 df16_17['GoalsHome'] = ''
 df16_17['GoalsAway'] = ''
+df16_17['GoalsagainstHome'] = ''
+df16_17['GoalsagainstAway'] = ''
 
 
 
@@ -1100,6 +1115,8 @@ for n,row in df16_17.iterrows():
 	df16_17.at[n, 'GamesAway'] = teamTracking[away]['games']
 	df16_17.at[n, 'GoalsHome'] = teamTracking[home]['goals']
 	df16_17.at[n, 'GoalsAway'] = teamTracking[away]['goals']
+	df16_17.at[n, 'GoalsagainstHome'] = teamTracking[home]['goalsagainst']
+	df16_17.at[n, 'GoalsagainstAway'] = teamTracking[away]['goalsagainst']
 
 
 	# Update tracking data
@@ -1116,6 +1133,9 @@ for n,row in df16_17.iterrows():
 
 	teamTracking[home]['goals'] += row['FTHG']
 	teamTracking[away]['goals'] += row['FTAG']
+
+	teamTracking[home]['goalsagainst'] += row['FTAG']
+	teamTracking[away]['goalsagainst'] += row['FTHG']
 
 
 
@@ -1234,7 +1254,7 @@ df17_18_stats["Away_cum_golas"] = np.nan
 # Add the statistics to the main dataframe
 
 
-teamTracking = defaultdict(lambda: { 'pts' : 0, 'games' : 0, 'goals':0, 'recent': [], 'recentHome': [], 'recentAway': []} )
+teamTracking = defaultdict(lambda: { 'pts' : 0, 'games' : 0, 'goals':0,'goalsagainst':0, 'recent': [], 'recentHome': [], 'recentAway': []} )
 
 
 
@@ -1245,7 +1265,8 @@ df17_18['GamesHome'] = ''
 df17_18['GamesAway'] = ''
 df17_18['GoalsHome'] = ''
 df17_18['GoalsAway'] = ''
-
+df17_18['GoalsagainstHome'] = ''
+df17_18['GoalsagainstAway'] = ''
 
 
 for n,row in df17_18.iterrows():
@@ -1260,6 +1281,8 @@ for n,row in df17_18.iterrows():
 	df17_18.at[n, 'GamesAway'] = teamTracking[away]['games']
 	df17_18.at[n, 'GoalsHome'] = teamTracking[home]['goals']
 	df17_18.at[n, 'GoalsAway'] = teamTracking[away]['goals']
+	df17_18.at[n, 'GoalsagainstHome'] = teamTracking[home]['goalsagainst']
+	df17_18.at[n, 'GoalsagainstAway'] = teamTracking[away]['goalsagainst']
 
 
 	# Update tracking data
@@ -1276,6 +1299,9 @@ for n,row in df17_18.iterrows():
 
 	teamTracking[home]['goals'] += row['FTHG']
 	teamTracking[away]['goals'] += row['FTAG']
+	teamTracking[home]['goalsagainst'] += row['FTAG']
+	teamTracking[away]['goalsagainst'] += row['FTHG']
+
 
 
 
@@ -1396,7 +1422,9 @@ df18_19_stats["Away_cum_golas"] = np.nan
 
 # Add the statistics to the main dataframe
 
-teamTracking = defaultdict(lambda: { 'pts' : 0, 'games' : 0, 'goals':0, 'recent': [], 'recentHome': [], 'recentAway': []} )
+
+
+teamTracking = defaultdict(lambda: { 'pts' : 0, 'games' : 0, 'goals':0,'goalsagainst':0, 'recent': [], 'recentHome': [], 'recentAway': []} )
 
 
 
@@ -1407,10 +1435,11 @@ df18_19['GamesHome'] = ''
 df18_19['GamesAway'] = ''
 df18_19['GoalsHome'] = ''
 df18_19['GoalsAway'] = ''
+df18_19['GoalsagainstHome'] = ''
+df18_19['GoalsagainstAway'] = ''
 
 
-
-for n,row in df18_19.iterrows():
+for n,row in df17_18.iterrows():
 
 	home = row['HomeTeam']
 	away = row['AwayTeam']
@@ -1422,6 +1451,8 @@ for n,row in df18_19.iterrows():
 	df18_19.at[n, 'GamesAway'] = teamTracking[away]['games']
 	df18_19.at[n, 'GoalsHome'] = teamTracking[home]['goals']
 	df18_19.at[n, 'GoalsAway'] = teamTracking[away]['goals']
+	df18_19.at[n, 'GoalsagainstHome'] = teamTracking[home]['goalsagainst']
+	df18_19.at[n, 'GoalsagainstAway'] = teamTracking[away]['goalsagainst']
 
 
 	# Update tracking data
@@ -1438,6 +1469,9 @@ for n,row in df18_19.iterrows():
 
 	teamTracking[home]['goals'] += row['FTHG']
 	teamTracking[away]['goals'] += row['FTAG']
+	teamTracking[home]['goalsagainst'] += row['FTAG']
+	teamTracking[away]['goalsagainst'] += row['FTHG']
+
 
 
 
@@ -1467,22 +1501,21 @@ for n,row in df18_19.iterrows():
 	teamTracking[away]['recent'].append(ptsAway)
 	teamTracking[away]['recentAway'].append(ptsAway)
 
-###################################################################################################
 
+
+
+###################################################################################################
 
 ##########################################################
 # d) Merge all the seasons into one single final dataframe
 ##########################################################
 
-df_total = pd.DataFrame(df14_15).append([df15_16,df16_17, df17_18, df18_19])
+df_total = pd.DataFrame(df14_15).append([df15_16, df16_17, df17_18, df18_19])
 
-df_total['FTR'] = df_total['FTR'].replace(['H','D','A'],[0,1,2])
 df_total['TotalLast5Home'] = df_total['TotalLast5Home'].astype(int)
 df_total['TotalLast5Away'] = df_total['TotalLast5Away'].astype(int)
 df_total['Last5WhenHome'] = df_total['Last5WhenHome'].astype(int)
 df_total['Last5WhenAway'] = df_total['TotalLast5Away'].astype(int)
-
-
+df_total['FTR'] = df_total['FTR'].replace(['H', 'D', 'A'], [0, 1, 2])
 
 df_total.to_csv('df_final.csv', index=False)
-
