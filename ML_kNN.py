@@ -23,35 +23,10 @@ df = pd.read_csv('df_final.csv')
 
 df_final = pd.read_csv('df_final.csv')
 # Let's put the betting odds in a separate dataframe for now
-
+df_ML = pd.read_csv('df_ML.csv')
 
 
 # Our benchmark for the market predictions will be BetBrain (overs 185 bookmakers included)
-
-BbAvH = df["BbAvH"]
-BbAvD = df["BbAvD"]
-BbAvA = df["BbAvA"]
-
-frame = {"BbAvH": BbAvH,"BbAvD": BbAvD, 'BbAvA': BbAvA}
-
-df_odds = pd.DataFrame(frame)
-df_odds1 = df_odds.iloc[1615:,:]
-df_prob = df_odds ** (-1)
-
-# Now, let's obtain the y predicted by the market
-
-y_prob = df_prob.iloc[:,:].values
-
-
-column_names = df.columns.tolist()
-
-print(column_names)
-
-df_ML = df[['Div', 'Date', 'HomeTeam', 'AwayTeam','FTR', 'overall_Home', 'overall_Away', 'potential_Home', 'potential_Away', 'value_eur_Home',
-						'value_eur_Away', 'wage_eur_Home', 'wage_eur_Away', 'international_reputation_Home', 'international_reputation_Away', 'PointsHome',
-						'PointsAway', 'GoalsHome', 'GoalsAway', 'GoalsagainstHome','GoalsagainstAway', 'TotalLast5Home', 'TotalLast5Away', 'Last5WhenHome', 'Last5WhenAway']]
-
-df_ML.to_csv('df_ML.csv', index=False)
 
 df_ML = pd.get_dummies(df_ML, columns = ["FTR"], prefix="result")
 
