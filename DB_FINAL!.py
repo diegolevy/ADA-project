@@ -1519,3 +1519,9 @@ df_total['Last5WhenAway'] = df_total['TotalLast5Away'].astype(int)
 df_total['FTR'] = df_total['FTR'].replace(['H', 'D', 'A'], [0, 1, 2])
 
 df_total.to_csv('df_final.csv', index=False)
+
+df_ML = df_total[['Div', 'Date', 'HomeTeam', 'AwayTeam','FTR', 'overall_Home', 'overall_Away', 'potential_Home', 'potential_Away', 'value_eur_Home',
+						'value_eur_Away', 'wage_eur_Home', 'wage_eur_Away', 'international_reputation_Home', 'international_reputation_Away', 'PointsHome',
+						'PointsAway', 'GoalsHome', 'GoalsAway', 'GoalsagainstHome','GoalsagainstAway', 'TotalLast5Home', 'TotalLast5Away', 'Last5WhenHome', 'Last5WhenAway']]
+
+df_ML.to_csv('df_ML.csv', index=False)
