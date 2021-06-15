@@ -27,8 +27,8 @@ c) Create dynamic statistics using in-games stats for each team
 - 1) Compute the number of points of each team at the time of the match for a given Season (Points obtained before the match)
 - Create a new dataframe to keeps track of the points and cumulative points and control if the work was
   executed correctly by looking the stands on internet
-- 2) Compute the goals scored by each team
-- 3) Compute the goals scored until the match date
+- 2) Compute the goals scored and conceded by each team
+- 3) Compute the goals scored and conceded until the match date
 - Add all the statistics to the main dataframe using a dynamic method (we found this method in the end, which
  simplified our work tremendously!)
 
