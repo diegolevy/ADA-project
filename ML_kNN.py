@@ -19,9 +19,16 @@ from sklearn.model_selection import cross_val_score
 # Transform the data
 #######################
 
-df = pd.read_csv('df_final.csv')
+
 
 df_final = pd.read_csv('df_final.csv')
+BbAvA = df_final["BbAvA"]
+BbAvD = df_final["BbAvD"]
+BbAvH = df_final["BbAvH"]
+frame = {"BbAvH": BbAvH,"BbAvD": BbAvD, 'BbAvA': BbAvA}
+
+df_odds = pd.DataFrame(frame)
+df_odds1 = df_odds.iloc[1615:,:]
 # Let's put the betting odds in a separate dataframe for now
 df_ML = pd.read_csv('df_ML.csv')
 
